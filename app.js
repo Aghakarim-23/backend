@@ -1,6 +1,7 @@
 const express = require("express")
 const mongoose = require("mongoose")
 const cors = require("cors")
+require("dotenv").config();
 const EmployeeModel = require("./models/Employee")
 
 const app = express()
@@ -28,6 +29,8 @@ app.post('/register', async (req,res) => {
     }
 })
 
-app.listen(3001, () => {
-    console.log(`Server is running`);
+const PORT = process.env.PORT || 5000
+
+app.listen(PORT, () => {
+    console.log(`Server is running at ${PORT}`);
 })
